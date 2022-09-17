@@ -4,13 +4,14 @@ import React from "react"
 import { Container } from "../components/Container"
 import { Heading } from "../components/Heading"
 import { Section } from "../components/Section"
-import { theme } from "../theme"
 
 const GAP = "1em"
 const imageProps = {
   alt: "",
   style: { marginBottom: GAP },
-  placeholdor: "blurred",
+  breakpoints: [540, 400, 300, 270, 200, 150],
+  sizes:
+    "(min-width: 1024px) 268px, (min-width: 640px) calc((100vw - 7rem)/3), (min-width: 500px) calc((100vw - 7rem)/2),  calc((100vw - 5rem)/2)",
 }
 
 export const GalleryBlock: React.FC = () => (

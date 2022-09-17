@@ -17,7 +17,6 @@ export const CoverBlock: React.FC = () => (
       <StaticImage
         src="../images/cover.jpg"
         alt=""
-        placeholder="blurred"
         layout="constrained"
         aspectRatio={1.5}
         height={460}
@@ -27,6 +26,7 @@ export const CoverBlock: React.FC = () => (
           margin: "0 16px",
           maxWidth: "100%",
         }}
+        breakpoints={[1380, 1200, 1000, 800, 690, 600, 500, 400, 300]}
       />
     </CoverContainer>
   </CoverSection>
