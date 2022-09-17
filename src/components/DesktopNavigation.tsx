@@ -12,10 +12,15 @@ import { theme } from "../theme"
 import { NavigationItem } from "./Navigation"
 import useScrollPosition from "@react-hook/window-scroll"
 
+interface UnderlineProps {
+  left: number
+  width: number
+}
+
 const getUnderlineCor = (
   container: HTMLElement | null,
   item: Element | null
-) => {
+): UnderlineProps | undefined => {
   const navListRect = container?.getBoundingClientRect()
   const activeItemRect = item?.getBoundingClientRect()
 
@@ -33,6 +38,9 @@ export const DesktopNavigation: React.FC<{ items: NavigationItem[] }> = ({
   items,
 }) => {
   const [activeItem, setActiveItem] = useState<string | undefined>()
+  const [activeItemCor, setActiveItemCor] = useState<
+    UnderlineProps | undefined
+  >()
   const scrollPosition = useScrollPosition()
   const navListRef = useRef<HTMLUListElement | null>(null)
 
@@ -61,10 +69,10 @@ export const DesktopNavigation: React.FC<{ items: NavigationItem[] }> = ({
 
   useEffect(() => {
     onScrollHandler(scrollPosition)
-  }, [onScrollHandler, scrollPosition])
 
-  const activeNavItem = document.querySelector(`a[href='${activeItem}']`)
-  const activeItemCor = getUnderlineCor(navListRef.current, activeNavItem)
+    const activeNavItem = document.querySelector(`a[href='${activeItem}']`)
+    setActiveItemCor(getUnderlineCor(navListRef.current, activeNavItem))
+  }, [onScrollHandler, scrollPosition])
 
   return (
     <NavList ref={navListRef}>
@@ -93,11 +101,6 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   margin-left: 4px;
 `
-
-interface UnderlineProps {
-  left: number
-  width: number
-}
 
 const Underline = styled.div`
   position: absolute;
