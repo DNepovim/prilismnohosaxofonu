@@ -3,11 +3,10 @@ import { theme } from "../theme"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import Hamburger from "hamburger-react"
-import { useWindowWidth } from "@react-hook/window-size"
 import useScrollPosition from "@react-hook/window-scroll"
 import AnchorLink from "react-anchor-link-smooth-scroll"
-import useOnClickOutside from "use-onclickoutside"
 import { Container } from "./Container"
+import { ShowOnDesktop, ShowOnMobile } from "./ShowOnMobile"
 
 interface NavigationItem {
   title: string
@@ -20,17 +19,9 @@ export const Navigation: React.FC<{
   items: NavigationItem[]
 }> = ({ items }) => {
   const [isOpened, setIsOpened] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
   const [activeItem, setActiveItem] = useState<string | undefined>()
-  const width = useWindowWidth()
   const scrollPosition = useScrollPosition()
   const navRef = useRef(null)
-
-  useEffect(() => {
-    setIsMobile(width < BREAKPOINT)
-  }, [width])
-
-  useOnClickOutside(navRef, () => setIsOpened(false))
 
   const onScrollHandler = useCallback(
     (scrollPossition: number) => {
@@ -43,7 +34,7 @@ export const Navigation: React.FC<{
       }
       setActiveItem(
         items.reduce<string | undefined>((acc, item) => {
-          const block = document.getElementById(item.link)
+          const block = document.getElementById(item.link.substring(1))
           if (!block) {
             return
           }
@@ -63,7 +54,7 @@ export const Navigation: React.FC<{
     <NavBar>
       <NavContainer>
         <Nav ref={navRef}>
-          {!isMobile && (
+          <ShowOnDesktop>
             <NavList>
               {items.map((item) => (
                 <NavItem key={item.link} onClick={() => setIsOpened(false)}>
@@ -73,25 +64,23 @@ export const Navigation: React.FC<{
                 </NavItem>
               ))}
             </NavList>
-          )}
-          {isMobile && isOpened && (
-            <NavListMobile onClick={() => setIsOpened(false)}>
-              {items.map((item) => (
-                <NavItem key={item.link}>
-                  <NavLinkMobile href={`#${item.link}`}>
-                    {item.title}
-                  </NavLinkMobile>
-                </NavItem>
-              ))}
-            </NavListMobile>
-          )}
-          {isMobile && (
+          </ShowOnDesktop>
+          <ShowOnMobile>
+            {isOpened && (
+              <NavListMobile onClick={() => setIsOpened(false)}>
+                {items.map((item) => (
+                  <NavItem key={item.link}>
+                    <NavLinkMobile href={item.link}>{item.title}</NavLinkMobile>
+                  </NavItem>
+                ))}
+              </NavListMobile>
+            )}
             <Hamburger
               color={"black"}
               toggled={isOpened}
               onToggle={() => setIsOpened(!isOpened)}
             />
-          )}
+          </ShowOnMobile>
         </Nav>
       </NavContainer>
     </NavBar>
