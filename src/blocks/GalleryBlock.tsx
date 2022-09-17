@@ -29,12 +29,12 @@ export const GalleryBlock: React.FC = () => (
         <StaticImage src={"../images/gallery/9.jpg"} {...imageProps} />
         <StaticImage src={"../images/gallery/10.jpg"} {...imageProps} />
         <StaticImage src={"../images/gallery/11.jpg"} {...imageProps} />
+        <StaticImage src={"../images/gallery/16.jpg"} {...imageProps} />
         <StaticImage src={"../images/gallery/3.jpg"} {...imageProps} />
         <StaticImage src={"../images/gallery/12.jpg"} {...imageProps} />
         <StaticImage src={"../images/gallery/13.jpg"} {...imageProps} />
         <StaticImage src={"../images/gallery/14.jpg"} {...imageProps} />
         <StaticImage src={"../images/gallery/15.jpg"} {...imageProps} />
-        <StaticImage src={"../images/gallery/16.jpg"} {...imageProps} />
       </GalleryContainer>
     </Container>
   </Section>
