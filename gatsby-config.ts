@@ -3,6 +3,7 @@ import path from "path"
 
 const config: GatsbyConfig = {
   siteMetadata: {
+    title: "Příliš mnoho saxofonů",
     siteUrl: `https://www.prilismnohosaxofonu.cz`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
