@@ -51,8 +51,8 @@ const Title = styled.h1`
   margin-top: 40vw;
   span {
     display: inline-block;
-    height: 0.6em;
-    line-height: 0.35em;
+    height: 0.9em;
+    line-height: 0.75em;
 
     &:first-of-type {
       font-size: 6vw;
@@ -70,6 +70,8 @@ const Title = styled.h1`
   @media (min-width: 640px) {
     margin-top: 10em;
     span {
+      height: 0.6em;
+      line-height: 0.35em;
       &:first-of-type {
         font-size: 3rem;
       }
