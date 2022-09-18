@@ -5,6 +5,7 @@ import { Container } from "../components/Container"
 import { Heading } from "../components/Heading"
 import { Section } from "../components/Section"
 import { theme } from "../theme"
+import { tp } from "../utils/tp"
 
 interface CalendarResponse {
   allCalendarEvent: {
@@ -71,6 +72,7 @@ const EventRow: React.FC<Event> = ({
   const { location } = JSON.parse(internal.content) as { location: string }
   const matches = description.match(/"(https?:\/\/\S+)"/gi)
   const link = matches?.length ? matches[0].replaceAll('"', "") : undefined
+  const title = tp(summary)
   return (
     <Row>
       <StyledDate>
@@ -83,10 +85,10 @@ const EventRow: React.FC<Event> = ({
         <Title>
           {link ? (
             <a href={link} target="_blank" rel="noopener norefferer">
-              {summary}
+              {title}
             </a>
           ) : (
-            summary
+            title
           )}
         </Title>
         {!allDay && (
@@ -95,7 +97,7 @@ const EventRow: React.FC<Event> = ({
           </Time>
         )}
         {!allDay && location && ", "}
-        {location && <Time>{location}</Time>}
+        {location && <Time>{tp(location)}</Time>}
       </Desc>
     </Row>
   )
@@ -120,12 +122,21 @@ const Row = styled.div`
 `
 
 const StyledDate = styled.time`
-  padding: 1.6rem;
-  width: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6em;
+  padding: 1rem;
+  flex: 0 0 4.4rem;
   font-family: ${theme.fonts.heading};
-  font-size: 2.2em;
   font-weight: bold;
   text-align: center;
+
+  @media (min-width: 700px) {
+    font-size: 2.2em;
+    padding: 1.6rem;
+    flex: 0 0 6.4rem;
+  }
 `
 
 const Desc = styled.div`
@@ -133,9 +144,12 @@ const Desc = styled.div`
 `
 
 const Title = styled.h3`
-  font-size: 1.6em;
+  font-size: 1.4em;
   font-weight: 600;
   margin: 0 0 0.1em;
+  @media (min-width: 700px) {
+    font-size: 1.6em;
+  }
 `
 
 const Time = styled.span``
