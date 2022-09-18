@@ -11,7 +11,7 @@ export const Heading: React.FC<{ children: ReactNode }> = ({ children }) => (
 const StyledHeading = styled.h2`
   font-family: ${theme.fonts.heading};
   font-size: 3em;
-  margin: 0 0 0.6em;
+  margin: 0 0 0.4em;
   span {
     display: inline-block;
     height: 0.6em;

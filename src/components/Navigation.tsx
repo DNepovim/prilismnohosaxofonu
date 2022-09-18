@@ -30,21 +30,22 @@ export const Navigation: React.FC<{
   )
 }
 
-const NavContainer = styled(Container)`
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 0;
-  padding-bottom: 0;
-`
-
 const NavBar = styled.div`
   position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${theme.color.background};
+  background-color: ${theme.color.background}fa;
   width: 100vw;
+`
+
+const NavContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 ${theme.layout.paddings.side};
+  max-width: ${theme.layout.widths.default};
+  margin: 0 auto;
 `
 
 const Nav = styled.nav`

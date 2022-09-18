@@ -6,7 +6,8 @@ export const theme = {
     beige: "#f3f2eb",
   },
   layout: {
-    width: 1024,
+    widths: { default: "64rem", narrow: "54rem" },
+    paddings: { side: "1rem" },
   },
   fonts: {
     heading: "Reem Kufi Fun, sans-serif",

@@ -18,35 +18,33 @@ const dates = [
 ]
 
 export const DatesBlock: React.FC = () => (
-  <Section id="koncerty">
-    <Container>
-      <Heading>Nadcházející koncerty</Heading>
-      {dates.map(({ title, date, time, venue, link }) => (
-        <Row>
-          <Date>{date}</Date>
-          <Desc>
-            <Title>
-              {link ? (
-                <a href={link} target="_blank" rel="noopener norefferer">
-                  {title}
-                </a>
-              ) : (
-                title
-              )}
-            </Title>
-            {time && <Time>{time}</Time>}
-            {time && venue && ", "}
-            {venue && <Time>{venue}</Time>}
-          </Desc>
-        </Row>
-      ))}
-    </Container>
+  <Section id="koncerty" title="Nadcházející koncerty">
+    {dates.map(({ title, date, time, venue, link }) => (
+      <Row>
+        <Date>{date}</Date>
+        <Desc>
+          <Title>
+            {link ? (
+              <a href={link} target="_blank" rel="noopener norefferer">
+                {title}
+              </a>
+            ) : (
+              title
+            )}
+          </Title>
+          {time && <Time>{time}</Time>}
+          {time && venue && ", "}
+          {venue && <Time>{venue}</Time>}
+        </Desc>
+      </Row>
+    ))}
   </Section>
 )
 
 const Row = styled.div`
   display: flex;
   border: 4px solid ${theme.color.brand}50;
+  background-color: white;
 
   &:first-of-type {
     border-radius: 10px 10px 0 0;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 
-const BREAKPOINT = 600
+const BREAKPOINT = 700
 
 export const ShowOnMobile = styled.span`
   @media (min-width: ${BREAKPOINT}px) {

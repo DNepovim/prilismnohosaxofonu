@@ -22,9 +22,8 @@ export const CoverBlock: React.FC = () => (
         height={460}
         style={{
           position: "absolute",
-          right: 0,
-          margin: "0 16px",
-          maxWidth: "100%",
+          right: theme.layout.paddings.side,
+          maxWidth: `calc(100% - 2rem)`,
         }}
         breakpoints={[1380, 1200, 1000, 800, 690, 600, 500, 400, 300]}
       />
@@ -32,11 +31,14 @@ export const CoverBlock: React.FC = () => (
   </CoverSection>
 )
 
-const CoverSection = styled(Section)`
-  padding-top: 60px;
+const CoverSection = styled.section`
+  position: relative;
+  max-width: ${theme.layout.widths.default};
+  margin: 0 auto;
+  padding: 0 ${theme.layout.paddings.side};
 `
 
-const CoverContainer = styled(Container)`
+const CoverContainer = styled.div`
   min-height: 70vw;
   @media (min-width: 640px) {
     min-height: 65vh;
@@ -56,13 +58,12 @@ const Title = styled.h1`
 
     &:first-of-type {
       font-size: 6vw;
-      margin-left: 1rem;
       background-color: #fff;
     }
 
     &:last-of-type {
       font-size: 16vw;
-      margin-left: 4rem;
+      margin-left: 3rem;
       background-color: ${theme.color.brand};
     }
   }

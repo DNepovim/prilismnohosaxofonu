@@ -3,13 +3,15 @@ import { theme } from "./theme"
 
 export const globalStyles = css`
   html {
+    background-color: ${theme.color.brand};
   }
 
   body {
-    margin: 4em 0;
-    padding: 0;
+    margin: 0;
+    padding: 6em 0;
     font-size: 18px;
     font-family: ${theme.fonts.body};
+    background: linear-gradient(white, #faecd1);
   }
 
   a {

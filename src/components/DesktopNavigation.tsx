@@ -94,13 +94,11 @@ const NavList = styled.ul`
   position: relative;
   display: flex;
   list-style: none;
-  margin: 0;
+  margin: 0 -0.4rem;
   padding: 0;
 `
 
-const NavItem = styled.li`
-  margin-left: 4px;
-`
+const NavItem = styled.li``
 
 const Underline = styled.div`
   position: absolute;
