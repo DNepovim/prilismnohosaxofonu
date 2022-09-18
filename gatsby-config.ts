@@ -37,6 +37,16 @@ const config: GatsbyConfig = {
         display: "swap",
       },
     },
+    {
+      resolve: `gatsby-source-google-calendar`,
+      options: {
+        calendarIds: ["8n0jfbuqg4n5v1lvol7b4n23b0@group.calendar.google.com"],
+        timeMin: new Date().toISOString(),
+        maxResults: 20,
+        singleEvents: true,
+        orderBy: "startTime",
+      },
+    },
   ],
 }
 

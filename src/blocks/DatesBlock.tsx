@@ -1,45 +1,105 @@
 import styled from "@emotion/styled"
+import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { Container } from "../components/Container"
 import { Heading } from "../components/Heading"
 import { Section } from "../components/Section"
 import { theme } from "../theme"
 
-const dates = [
-  {
-    date: "17. 9.",
-    time: "16:00",
-    title: "Kavárna Fejeton",
-    venue: "Úvoz",
-    link: "https://www.facebook.com/events/609190224049047",
-  },
-  { date: "24. 9.", title: "Rudolfinum", venue: "Staré město" },
-  { date: "30. 9.", title: "Skautský institut v Rybárně", venue: "Kampa" },
-]
+interface CalendarResponse {
+  allCalendarEvent: {
+    edges: {
+      node: Event
+    }[]
+  }
+}
 
-export const DatesBlock: React.FC = () => (
-  <Section id="koncerty" title="Nadcházející koncerty">
-    {dates.map(({ title, date, time, venue, link }) => (
-      <Row>
-        <Date>{date}</Date>
-        <Desc>
-          <Title>
-            {link ? (
-              <a href={link} target="_blank" rel="noopener norefferer">
-                {title}
-              </a>
-            ) : (
-              title
-            )}
-          </Title>
-          {time && <Time>{time}</Time>}
-          {time && venue && ", "}
-          {venue && <Time>{venue}</Time>}
-        </Desc>
-      </Row>
-    ))}
-  </Section>
-)
+interface Event {
+  id: string
+  description: string
+  allDay: boolean
+  summary: string
+  start: { dateTime: string }
+  internal: {
+    content: string
+  }
+}
+
+export const DatesBlock: React.FC = () => {
+  const {
+    allCalendarEvent: { edges: events },
+  } = useStaticQuery<CalendarResponse>(graphql`
+    query {
+      allCalendarEvent {
+        edges {
+          node {
+            allDay
+            description
+            summary
+            end {
+              dateTime
+            }
+            start {
+              dateTime
+            }
+            internal {
+              content
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <Section id="koncerty" title="Koncerty">
+      {events.map(({ node: event }) => (
+        <EventRow key={event.id} {...event} />
+      ))}
+    </Section>
+  )
+}
+
+const EventRow: React.FC<Event> = ({
+  summary,
+  description,
+  allDay,
+  start,
+  internal,
+}) => {
+  const startDate = new Date(start.dateTime)
+  const { location } = JSON.parse(internal.content) as { location: string }
+  const matches = description.match(/"(https?:\/\/\S+)"/gi)
+  const link = matches?.length ? matches[0].replaceAll('"', "") : undefined
+  return (
+    <Row>
+      <StyledDate>
+        {startDate.toLocaleDateString("cs-CZ", {
+          month: "short",
+          day: "numeric",
+        })}
+      </StyledDate>
+      <Desc>
+        <Title>
+          {link ? (
+            <a href={link} target="_blank" rel="noopener norefferer">
+              {summary}
+            </a>
+          ) : (
+            summary
+          )}
+        </Title>
+        {!allDay && (
+          <Time>
+            {startDate.toLocaleTimeString("cz", { timeStyle: "short" })}
+          </Time>
+        )}
+        {!allDay && location && ", "}
+        {location && <Time>{location}</Time>}
+      </Desc>
+    </Row>
+  )
+}
 
 const Row = styled.div`
   display: flex;
@@ -59,7 +119,7 @@ const Row = styled.div`
   }
 `
 
-const Date = styled.time`
+const StyledDate = styled.time`
   padding: 1.6rem;
   width: 2.4em;
   font-family: ${theme.fonts.heading};
