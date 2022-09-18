@@ -40,6 +40,8 @@ export const GalleryBlock: React.FC = () => (
 const GalleryContainer = styled.div`
   column-count: 2;
   column-gap: ${GAP};
+  border-radius: 10px;
+  overflow: hidden;
   @media (min-width: 640px) {
     column-count: 3;
   }
