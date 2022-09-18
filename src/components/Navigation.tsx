@@ -1,7 +1,6 @@
 import React from "react"
 import { theme } from "../theme"
 import styled from "@emotion/styled"
-import { Container } from "./Container"
 import { ShowOnDesktop, ShowOnMobile } from "./ShowOnMobile"
 import { MobileNavigation } from "./MobileNavigation"
 import { DesktopNavigation } from "./DesktopNavigation"

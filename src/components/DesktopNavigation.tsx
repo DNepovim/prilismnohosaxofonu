@@ -1,12 +1,5 @@
-import { css } from "@emotion/react"
 import styled from "@emotion/styled"
-import React, {
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import { theme } from "../theme"
 import { NavigationItem } from "./Navigation"
@@ -78,7 +71,11 @@ export const DesktopNavigation: React.FC<{ items: NavigationItem[] }> = ({
     <NavList ref={navListRef}>
       {items.map((item) => (
         <NavItem key={item.link}>
-          <NavLink href={item.link} isActive={activeItem === item.link}>
+          <NavLink
+            href={item.link}
+            isActive={activeItem === item.link}
+            offset={50}
+          >
             {item.title}
           </NavLink>
         </NavItem>
