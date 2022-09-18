@@ -106,8 +106,8 @@ const Underline = styled.div`
   bottom: 0;
   height: 4px;
   width: ${({ width }: UnderlineProps) => width}px;
-  transition: left 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    width 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: left 300ms ${theme.animation.function},
+    width 300ms ${theme.animation.function};
   background-color: ${theme.color.brand};
 `
 

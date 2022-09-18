@@ -5,6 +5,7 @@ import { Container } from "./Container"
 import { ShowOnDesktop, ShowOnMobile } from "./ShowOnMobile"
 import { MobileNavigation } from "./MobileNavigation"
 import { DesktopNavigation } from "./DesktopNavigation"
+import { navOnLoadAnimation } from "../globalStyles"
 
 export interface NavigationItem {
   title: string
@@ -38,6 +39,7 @@ const NavBar = styled.div`
   right: 0;
   background-color: ${theme.color.background}fa;
   width: 100vw;
+  animation: ${navOnLoadAnimation} 900ms 300ms ${theme.animation.function} both;
 `
 
 const NavContainer = styled.div`

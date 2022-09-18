@@ -1,4 +1,4 @@
-import { css } from "@emotion/react"
+import { css, keyframes } from "@emotion/react"
 import { theme } from "./theme"
 
 export const globalStyles = css`
@@ -26,4 +26,37 @@ export const globalStyles = css`
   ::selection {
     background-color: ${theme.color.brand};
   }
+`
+
+export const titleOnLoadAnimation = keyframes`
+    from {
+      opacity: 0;
+      top: 1rem;
+    }
+    to {
+      opacity: 1;
+      top: 0;
+    }
+`
+
+export const coverOnLoadAnimation = keyframes`
+    from {
+      opacity: 0.5;
+      right: 0;
+    }
+    to {
+      opacity: 1;
+      right: ${theme.layout.paddings.side};
+    }
+`
+
+export const navOnLoadAnimation = keyframes`
+    from {
+      opacity: 0.5;
+      top: -1rem
+    }
+    to {
+      opacity: 1;
+      top: 0;
+    }
 `
