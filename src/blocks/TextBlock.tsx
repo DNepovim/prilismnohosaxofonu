@@ -10,7 +10,7 @@ export const TextBlock: React.FC = () => (
       <p>
         Studentský saxofonový orchestr <strong>„Příliš mnoho saxofonů“</strong>{" "}
         založil při ZUŠ Pelléova impresário <strong>Zdenko Kašpar</strong>{" "}
-        v&nbsp;roce <strong>1995</strong>.
+        v&nbsp;roce <strong>1994</strong>.
       </p>
       <p>
         Soubor je ojedinělý už svým obsazením, je složen pouze ze&nbsp;saxofonů.
