@@ -8,6 +8,7 @@ import { TextBlock } from "../blocks/TextBlock"
 import { GalleryBlock } from "../blocks/GalleryBlock"
 import { ContactBlock } from "../blocks/ContactBlock"
 import { DatesBlock } from "../blocks/DatesBlock"
+import { theme } from "../theme"
 
 const IndexPage = () => {
   return (
@@ -32,3 +33,20 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const Head = () => (
+  <>
+    <title>Příliš mnoho saxofonů</title>
+    <meta name="description" content="Saxofonový orchestr z Prahy" />
+    <meta name="author" content="Dominik Bláha | jsem@dominikblaha.cz" />
+    <meta name="url" content="https://www.prilismnohosaxofonu.cz" />
+    <meta name="theme-color" content={theme.color.brand} />
+    <meta name="og:title" content="Příliš mnoho saxofonů" />
+    <meta name="og:description" content="Saxofonový orchestr z Prahy" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:image"
+      content="https://www.prilismnohosaxofonu.cz/fbCover.png"
+    />
+  </>
+)
