@@ -78,6 +78,7 @@ const EventRow: React.FC<Event> = ({
     <Row>
       <StyledDate>
         {startDate.toLocaleDateString("cs-CZ", {
+          timeZone: "CET",
           month: "short",
           day: "numeric",
         })}
@@ -94,7 +95,10 @@ const EventRow: React.FC<Event> = ({
         </Title>
         {!allDay && (
           <Time>
-            {startDate.toLocaleTimeString("cz", { timeStyle: "short" })}
+            {startDate.toLocaleTimeString("cs-CZ", {
+              timeZone: "CET",
+              timeStyle: "short",
+            })}
           </Time>
         )}
         {!allDay && location && ", "}
