@@ -47,6 +47,15 @@ const config: GatsbyConfig = {
         orderBy: "startTime",
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "G-F1EPN7YBZQ",
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
   ],
 }
 
