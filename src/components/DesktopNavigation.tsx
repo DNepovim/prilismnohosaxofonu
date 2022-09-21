@@ -73,7 +73,7 @@ export const DesktopNavigation: React.FC<{ items: NavigationItem[] }> = ({
         <NavItem key={item.link}>
           <NavLink
             href={item.link}
-            isActive={activeItem === item.link}
+            active={activeItem === item.link ? 1 : 0}
             offset={50}
           >
             {item.title}
@@ -113,8 +113,8 @@ const NavLink = styled(AnchorLink)`
   display: block;
   padding: 0.4rem;
   transition: color 300ms;
-  color: ${({ isActive }: { isActive: boolean }) =>
-    isActive ? theme.color.brand : "black"};
+  color: ${({ active }: { active: 0 | 1 }) =>
+    active ? theme.color.brand : "black"};
   cursor: pointer;
   font-size: 1.8em;
   font-weight: 600;

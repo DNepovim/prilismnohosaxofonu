@@ -34,6 +34,7 @@ export const DatesBlock: React.FC = () => {
       allCalendarEvent {
         edges {
           node {
+            id
             allDay
             description
             summary
