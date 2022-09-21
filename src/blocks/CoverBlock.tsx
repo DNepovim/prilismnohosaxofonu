@@ -20,6 +20,7 @@ export const CoverBlock: React.FC = () => (
           src="../images/cover.jpg"
           alt=""
           layout="constrained"
+          loading="eager"
           aspectRatio={1.5}
           height={460}
           style={{}}
