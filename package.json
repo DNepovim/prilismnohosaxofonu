@@ -22,6 +22,7 @@
     "@types/typopo": "^2.5.1",
     "add": "^2.0.6",
     "gatsby": "^4.23.0",
+    "gatsby-plugin-emotion": "^7.23.0",
     "gatsby-plugin-google-analytics": "^4.23.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^2.23.0",

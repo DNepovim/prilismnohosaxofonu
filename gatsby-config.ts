@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
