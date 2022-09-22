@@ -1,9 +1,9 @@
 import styled from "@emotion/styled"
-import React, { useCallback, useEffect, useRef, useState } from "react"
-import AnchorLink from "react-anchor-link-smooth-scroll"
+import React, { useEffect, useRef, useState } from "react"
 import { theme } from "../theme"
 import { NavigationItem } from "./Navigation"
 import useScrollPosition from "@react-hook/window-scroll"
+import { Link } from "gatsby"
 
 interface UnderlineProps {
   left: number
@@ -27,55 +27,30 @@ const getUnderlineCor = (
   }
 }
 
-export const DesktopNavigation: React.FC<{ items: NavigationItem[] }> = ({
-  items,
-}) => {
-  const [activeItem, setActiveItem] = useState<string | undefined>()
+export const DesktopNavigation: React.FC<{
+  items: NavigationItem[]
+  activeItem?: string
+}> = ({ items, activeItem }) => {
   const [activeItemCor, setActiveItemCor] = useState<
     UnderlineProps | undefined
   >()
   const scrollPosition = useScrollPosition()
   const navListRef = useRef<HTMLUListElement | null>(null)
 
-  const onScrollHandler = useCallback(
-    (scrollPossition: number) => {
-      if (
-        document.body.scrollHeight - (scrollPosition + window.innerHeight) <
-        100
-      ) {
-        setActiveItem(items[items.length - 1].link)
-        return
-      }
-      setActiveItem(
-        items.reduce<string | undefined>((acc, item) => {
-          const block = document.getElementById(item.link.substring(1))
-          if (!block) {
-            return
-          }
-          const { top } = block.getBoundingClientRect()
-          return top < 100 ? item.link : acc
-        }, undefined)
-      )
-    },
-    [items, scrollPosition]
-  )
+  const fallbackedActiveItem = activeItem ?? items[0].link
 
   useEffect(() => {
-    onScrollHandler(scrollPosition)
-
-    const activeNavItem = document.querySelector(`a[href='${activeItem}']`)
+    const activeNavItem = document.querySelector(
+      `a[href='/${fallbackedActiveItem}']`
+    )
     setActiveItemCor(getUnderlineCor(navListRef.current, activeNavItem))
-  }, [onScrollHandler, scrollPosition])
+  }, [scrollPosition])
 
   return (
     <NavList ref={navListRef}>
       {items.map((item) => (
         <NavItem key={item.link}>
-          <NavLink
-            href={item.link}
-            active={activeItem === item.link ? 1 : 0}
-            offset={50}
-          >
+          <NavLink to={item.link} active={activeItem === item.link ? 1 : 0}>
             {item.title}
           </NavLink>
         </NavItem>
@@ -108,7 +83,7 @@ const Underline = styled.div`
   background-color: ${theme.color.brand};
 `
 
-const NavLink = styled(AnchorLink)`
+const NavLink = styled(Link)`
   position: relative;
   display: block;
   padding: 0.4rem;

@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { theme } from "../theme"
 import styled from "@emotion/styled"
+import useScrollPosition from "@react-hook/window-scroll"
 import { ShowOnDesktop, ShowOnMobile } from "./ShowOnMobile"
 import { MobileNavigation } from "./MobileNavigation"
 import { DesktopNavigation } from "./DesktopNavigation"
@@ -14,15 +15,42 @@ export interface NavigationItem {
 export const Navigation: React.FC<{
   items: NavigationItem[]
 }> = ({ items }) => {
+  const [activeItem, setActiveItem] = useState<string | undefined>()
+  const scrollPosition = useScrollPosition()
+  const onScrollHandler = useCallback(
+    (scrollPossition: number) => {
+      if (
+        document.body.scrollHeight - (scrollPosition + window.innerHeight) <
+        100
+      ) {
+        setActiveItem(items[items.length - 1].link)
+        return
+      }
+      setActiveItem(
+        items.reduce<string | undefined>((acc, item) => {
+          const block = document.getElementById(item.link.substring(1))
+          if (!block) {
+            return
+          }
+          const { top } = block.getBoundingClientRect()
+          return top < 100 ? item.link : acc
+        }, undefined)
+      )
+    },
+    [items, scrollPosition]
+  )
+  useEffect(() => {
+    onScrollHandler(scrollPosition)
+  }, [onScrollHandler, scrollPosition])
   return (
     <NavBar>
       <NavContainer>
         <Nav>
           <ShowOnDesktop>
-            <DesktopNavigation items={items} />
+            <DesktopNavigation items={items} activeItem={activeItem} />
           </ShowOnDesktop>
           <ShowOnMobile>
-            <MobileNavigation items={items} />
+            <MobileNavigation items={items.slice(1)} activeItem={activeItem} />
           </ShowOnMobile>
         </Nav>
       </NavContainer>

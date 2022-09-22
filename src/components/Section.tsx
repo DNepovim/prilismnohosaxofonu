@@ -17,6 +17,6 @@ export const Section: React.FC<{
 
 const StyledSection = styled.section`
   max-width: ${theme.layout.widths.default};
-  margin: 0 auto 5rem;
-  padding: 0 ${theme.layout.paddings.side};
+  margin: 0 auto;
+  padding: 3.5rem ${theme.layout.paddings.side} 1.5rem;
 `

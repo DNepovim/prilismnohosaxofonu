@@ -1,12 +1,15 @@
 import styled from "@emotion/styled"
+import { Link } from "gatsby"
 import Hamburger from "hamburger-react"
 import React, { useState } from "react"
-import AnchorLink from "react-anchor-link-smooth-scroll"
+import { mobileOpenAnimation } from "../globalStyles"
+import { theme } from "../theme"
 import { NavigationItem } from "./Navigation"
 
 export const MobileNavigation: React.FC<{
   items: NavigationItem[]
-}> = ({ items }) => {
+  activeItem?: string
+}> = ({ items, activeItem }) => {
   const [isOpened, setIsOpened] = useState(false)
   return (
     <>
@@ -14,7 +17,12 @@ export const MobileNavigation: React.FC<{
         <NavListMobile onClick={() => setIsOpened(false)}>
           {items.map((item) => (
             <NavItem key={item.link}>
-              <NavLinkMobile href={item.link}>{item.title}</NavLinkMobile>
+              <NavLinkMobile
+                to={item.link}
+                active={activeItem === item.link ? 1 : 0}
+              >
+                {item.title}
+              </NavLinkMobile>
             </NavItem>
           ))}
         </NavListMobile>
@@ -31,12 +39,14 @@ export const MobileNavigation: React.FC<{
 const NavItem = styled.li``
 
 const NavListMobile = styled.ul`
+  animation: ${mobileOpenAnimation} 300ms ${theme.animation.function} both;
+  touch-action: none;
   background-color: white;
   position: absolute;
-  top: -0.6em;
+  top: 0;
   right: 0;
   bottom: 0;
-  left: -0.6em;
+  left: 0;
   height: 100vh;
   width: 100vw;
   list-style: none;
@@ -47,9 +57,10 @@ const NavListMobile = styled.ul`
   justify-content: center;
 `
 
-const NavLinkMobile = styled(AnchorLink)`
+const NavLinkMobile = styled(Link)`
   display: block;
-  color: black;
+  color: ${({ active }: { active: 0 | 1 }) =>
+    active ? theme.color.brand : "black"};
   padding: 0.6em;
   font-size: 2.6em;
   font-weight: 600;

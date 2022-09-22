@@ -1,9 +1,6 @@
-import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
-import { Container } from "../components/Container"
-import { Section } from "../components/Section"
 import { coverOnLoadAnimation, titleOnLoadAnimation } from "../globalStyles"
 import { theme } from "../theme"
 
@@ -23,7 +20,6 @@ export const CoverBlock: React.FC = () => (
           loading="eager"
           aspectRatio={1.5}
           height={460}
-          style={{}}
           breakpoints={[1380, 1200, 1000, 800, 690, 600, 500, 400, 300]}
         />
       </ImageWrapper>
@@ -32,13 +28,13 @@ export const CoverBlock: React.FC = () => (
 )
 
 const CoverSection = styled.section`
-  position: relative;
   max-width: ${theme.layout.widths.default};
   margin: 0 auto;
-  padding: 0 ${theme.layout.paddings.side};
+  padding: 6rem 0 ${theme.layout.paddings.side};
 `
 
 const CoverContainer = styled.div`
+  position: relative;
   min-height: 70vw;
   @media (min-width: 640px) {
     min-height: 65vh;

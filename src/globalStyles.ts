@@ -4,11 +4,12 @@ import { theme } from "./theme"
 export const globalStyles = css`
   html {
     background-color: ${theme.color.brand};
+    scroll-behavior: smooth;
   }
 
   body {
     margin: 0;
-    padding: 6em 0;
+    padding: 0 0 6em;
     font-size: 18px;
     font-family: ${theme.fonts.body};
     background: linear-gradient(white, #faecd1);
@@ -58,5 +59,14 @@ export const navOnLoadAnimation = keyframes`
     to {
       opacity: 1;
       top: 0;
+    }
+`
+
+export const mobileOpenAnimation = keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
 `

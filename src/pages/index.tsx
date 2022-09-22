@@ -16,7 +16,7 @@ const IndexPage = () => {
       <Global styles={globalStyles} />
       <Navigation
         items={[
-          { title: "Úvod", link: "#uvod" },
+          { title: "🎷", link: "#uvod" },
           { title: "O nás", link: "#o-nas" },
           { title: "Koncerty", link: "#koncerty" },
           { title: "Galerie", link: "#galerie" },
