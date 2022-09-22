@@ -2,19 +2,22 @@ import React, { useCallback, useEffect, useState } from "react"
 import { theme } from "../theme"
 import styled from "@emotion/styled"
 import useScrollPosition from "@react-hook/window-scroll"
-import { ShowOnDesktop, ShowOnMobile } from "./ShowOnMobile"
-import { MobileNavigation } from "./MobileNavigation"
-import { DesktopNavigation } from "./DesktopNavigation"
+import { ShowOnDesktop, ShowOnMobile } from "../components/ShowOnMobile"
+import { MobileNavigation } from "../components/MobileNavigation"
+import { DesktopNavigation } from "../components/DesktopNavigation"
 import { navOnLoadAnimation } from "../globalStyles"
+import { BlockProps } from "../blocks"
 
-export interface NavigationItem {
+export interface NavigationBlockItem {
   title: string
   link: string
 }
 
-export const Navigation: React.FC<{
-  items: NavigationItem[]
-}> = ({ items }) => {
+export interface NavigationBlockProps extends BlockProps {
+  items: NavigationBlockItem[]
+}
+
+export const NavigationBlock: React.FC<NavigationBlockProps> = ({ items }) => {
   const [activeItem, setActiveItem] = useState<string | undefined>()
   const scrollPosition = useScrollPosition()
   const onScrollHandler = useCallback(
@@ -23,7 +26,7 @@ export const Navigation: React.FC<{
         document.body.scrollHeight - (scrollPosition + window.innerHeight) <
         100
       ) {
-        setActiveItem(items[items.length - 1].link)
+        setActiveItem(items[items.length - 2].link)
         return
       }
       setActiveItem(

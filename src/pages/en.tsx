@@ -6,11 +6,11 @@ import { theme } from "../theme"
 import { data, Language } from "../data"
 import { blocksComponents } from "../blocks"
 
-const IndexPage = () => {
+const EnPage = () => {
   return (
     <main>
       <Global styles={globalStyles} />
-      {data[Language.Cz].map((item) =>
+      {data[Language.En].map((item) =>
         React.createElement(blocksComponents[item.block] as any, {
           ...(item.data as any),
           key: item.data.id,
@@ -20,17 +20,17 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default EnPage
 
 export const Head: HeadFC = () => (
   <>
-    <title>Příliš mnoho saxofonů</title>
-    <meta name="description" content="Saxofonový orchestr z Prahy" />
+    <title>Too many saxophones</title>
+    <meta name="description" content="The saxophone orchestra of Prague" />
     <meta name="author" content="Dominik Bláha | jsem@dominikblaha.cz" />
-    <meta name="url" content="https://www.prilismnohosaxofonu.cz" />
+    <meta name="url" content="https://www.prilismnohosaxofonu.cz/en" />
     <meta name="theme-color" content={theme.color.brand} />
-    <meta name="og:title" content="Příliš mnoho saxofonů" />
-    <meta name="og:description" content="Saxofonový orchestr z Prahy" />
+    <meta name="og:title" content="Too many saxophones" />
+    <meta name="og:description" content="The saxophone orchestra of Prague" />
     <meta property="og:type" content="article" />
     <meta
       property="og:image"

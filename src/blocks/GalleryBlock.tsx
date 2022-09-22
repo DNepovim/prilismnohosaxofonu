@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
-import { Container } from "../components/Container"
-import { Heading } from "../components/Heading"
+import { BlockProps } from "../blocks"
 import { Section } from "../components/Section"
 
 const GAP = "1em"
@@ -14,8 +13,10 @@ const imageProps = {
     "(min-width: 1024px) 268px, (min-width: 640px) calc((100vw - 7rem)/3), (min-width: 500px) calc((100vw - 7rem)/2),  calc((100vw - 5rem)/2)",
 }
 
-export const GalleryBlock: React.FC = () => (
-  <Section id="galerie" title="Galerie">
+export type GalleryBlockProps = BlockProps
+
+export const GalleryBlock: React.FC<GalleryBlockProps> = ({ id, title }) => (
+  <Section id={id} title={title}>
     <GalleryContainer>
       <StaticImage src={"../images/gallery/1.jpg"} {...imageProps} />
       <StaticImage src={"../images/gallery/4.jpg"} {...imageProps} />

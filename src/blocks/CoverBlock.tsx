@@ -1,16 +1,26 @@
 import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
+import { BlockProps } from "../blocks"
 import { coverOnLoadAnimation, titleOnLoadAnimation } from "../globalStyles"
 import { theme } from "../theme"
 
-export const CoverBlock: React.FC = () => (
-  <CoverSection id="uvod">
+export interface CoverBlockProps extends BlockProps {
+  firstTitle: string
+  secondTitle: string
+}
+
+export const CoverBlock: React.FC<CoverBlockProps> = ({
+  id,
+  firstTitle,
+  secondTitle,
+}) => (
+  <CoverSection id={id}>
     <CoverContainer>
       <Title>
-        <span>Příliš mnoho</span>
+        <span>{firstTitle}</span>
         <br />
-        <span>saxofonů</span>
+        <span>{secondTitle}</span>
       </Title>
       <ImageWrapper>
         <StaticImage

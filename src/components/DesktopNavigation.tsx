@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import React, { useEffect, useRef, useState } from "react"
 import { theme } from "../theme"
-import { NavigationItem } from "./Navigation"
+import { NavigationBlockItem } from "../blocks/NavigationBlock"
 import useScrollPosition from "@react-hook/window-scroll"
 import { Link } from "gatsby"
 
@@ -28,7 +28,7 @@ const getUnderlineCor = (
 }
 
 export const DesktopNavigation: React.FC<{
-  items: NavigationItem[]
+  items: NavigationBlockItem[]
   activeItem?: string
 }> = ({ items, activeItem }) => {
   const [activeItemCor, setActiveItemCor] = useState<

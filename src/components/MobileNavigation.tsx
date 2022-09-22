@@ -4,10 +4,10 @@ import Hamburger from "hamburger-react"
 import React, { useState } from "react"
 import { mobileOpenAnimation } from "../globalStyles"
 import { theme } from "../theme"
-import { NavigationItem } from "./Navigation"
+import { NavigationBlockItem } from "../blocks/NavigationBlock"
 
 export const MobileNavigation: React.FC<{
-  items: NavigationItem[]
+  items: NavigationBlockItem[]
   activeItem?: string
 }> = ({ items, activeItem }) => {
   const [isOpened, setIsOpened] = useState(false)
