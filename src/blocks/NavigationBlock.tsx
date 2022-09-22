@@ -30,7 +30,7 @@ export const NavigationBlock: React.FC<NavigationBlockProps> = ({ items }) => {
         return
       }
       setActiveItem(
-        items.reduce<string | undefined>((acc, item) => {
+        items.slice(0, -1).reduce<string | undefined>((acc, item) => {
           const block = document.getElementById(item.link.substring(1))
           if (!block) {
             return
