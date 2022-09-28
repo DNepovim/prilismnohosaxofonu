@@ -24,13 +24,13 @@ export const CoverBlock: React.FC<CoverBlockProps> = ({
       </Title>
       <ImageWrapper>
         <StaticImage
-          src="../images/cover.jpg"
+          src="../images/cover.jpeg"
           alt=""
           layout="constrained"
           loading="eager"
           aspectRatio={1.5}
           height={460}
-          breakpoints={[1380, 1200, 1000, 800, 690, 600, 500, 400, 300]}
+          breakpoints={[1000, 800, 690, 600, 500, 400, 300]}
         />
       </ImageWrapper>
     </CoverContainer>

@@ -24,17 +24,13 @@ export default IndexPage
 
 export const Head: HeadFC = () => (
   <>
-    <title>Příliš mnoho saxofonů</title>
-    <meta name="description" content="Saxofonový orchestr z Prahy" />
+    <title>Jaksisaxy</title>
+    <meta name="description" content="Saxofonový kvartet z Prahy" />
     <meta name="author" content="Dominik Bláha | jsem@dominikblaha.cz" />
-    <meta name="url" content="https://www.prilismnohosaxofonu.cz" />
+    <meta name="url" content="https://www.jaksisaxy.cz" />
     <meta name="theme-color" content={theme.color.brand} />
-    <meta name="og:title" content="Příliš mnoho saxofonů" />
-    <meta name="og:description" content="Saxofonový orchestr z Prahy" />
+    <meta name="og:title" content="Jaksisaxy" />
+    <meta name="og:description" content="Saxofonový kvartet z Prahy" />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:image"
-      content="https://www.prilismnohosaxofonu.cz/fbCover.png"
-    />
   </>
 )

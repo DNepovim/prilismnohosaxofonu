@@ -1,11 +1,12 @@
 import styled from "@emotion/styled"
 import React from "react"
 import { Section } from "../components/Section"
-import { FiMail } from "react-icons/fi/"
+import { FiInstagram, FiMail } from "react-icons/fi/"
 import { BlockProps } from "../blocks"
 
 export enum ContactType {
   Mail = "mail",
+  Instagram = "instagram",
 }
 
 export interface ContactBlockProps extends BlockProps {
@@ -37,6 +38,8 @@ const ContactIcon: React.FC<{ type: ContactType }> = ({ type }) => {
   switch (type) {
     case ContactType.Mail:
       return <FiMail style={{ marginRight: "0.2em" }} />
+    case ContactType.Instagram:
+      return <FiInstagram style={{ marginRight: "0.2em" }} />
   }
 }
 

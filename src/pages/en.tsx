@@ -24,17 +24,13 @@ export default EnPage
 
 export const Head: HeadFC = () => (
   <>
-    <title>Too many saxophones</title>
-    <meta name="description" content="The saxophone orchestra of Prague" />
+    <title>Jaksisaxy</title>
+    <meta name="description" content="The saxophone quartet from Prague" />
     <meta name="author" content="Dominik Bláha | jsem@dominikblaha.cz" />
-    <meta name="url" content="https://www.prilismnohosaxofonu.cz/en" />
+    <meta name="url" content="https://www.jaksisaxy.cz/en" />
     <meta name="theme-color" content={theme.color.brand} />
-    <meta name="og:title" content="Too many saxophones" />
-    <meta name="og:description" content="The saxophone orchestra of Prague" />
+    <meta name="og:title" content="Jaksisaxy" />
+    <meta name="og:description" content="The saxophone quartet from Prague" />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:image"
-      content="https://www.prilismnohosaxofonu.cz/fbCover.png"
-    />
   </>
 )

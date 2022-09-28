@@ -18,7 +18,7 @@ export type GalleryBlockProps = BlockProps
 export const GalleryBlock: React.FC<GalleryBlockProps> = ({ id, title }) => (
   <Section id={id} title={title}>
     <GalleryContainer>
-      <StaticImage src={"../images/gallery/1.jpg"} {...imageProps} />
+      {/* <StaticImage src={"../images/gallery/1.jpg"} {...imageProps} />
       <StaticImage src={"../images/gallery/4.jpg"} {...imageProps} />
       <StaticImage src={"../images/gallery/5.jpg"} {...imageProps} />
       <StaticImage src={"../images/gallery/6.jpg"} {...imageProps} />
@@ -33,7 +33,7 @@ export const GalleryBlock: React.FC<GalleryBlockProps> = ({ id, title }) => (
       <StaticImage src={"../images/gallery/12.jpg"} {...imageProps} />
       <StaticImage src={"../images/gallery/13.jpg"} {...imageProps} />
       <StaticImage src={"../images/gallery/14.jpg"} {...imageProps} />
-      <StaticImage src={"../images/gallery/15.jpg"} {...imageProps} />
+      <StaticImage src={"../images/gallery/15.jpg"} {...imageProps} /> */}
     </GalleryContainer>
   </Section>
 )

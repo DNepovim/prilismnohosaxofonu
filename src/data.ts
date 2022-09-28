@@ -34,8 +34,6 @@ export const data: Data = {
         items: [
           { title: "🎷", link: "#uvod" },
           { title: "O nás", link: "#o-nas" },
-          { title: "Koncerty", link: "#koncerty" },
-          { title: "Galerie", link: "#galerie" },
           { title: "Kontakty", link: "#kontakty" },
           { title: "En", link: "en" },
         ],
@@ -45,8 +43,8 @@ export const data: Data = {
       block: Blocks.Cover,
       data: {
         id: "uvod",
-        firstTitle: "Příliš mnoho",
-        secondTitle: "saxofonů",
+        firstTitle: "Jaksi",
+        secondTitle: "saxy",
       },
     },
     {
@@ -54,34 +52,7 @@ export const data: Data = {
       data: {
         id: "o-nas",
         title: "O nás",
-        text: `
-			<p>
-        Studentský saxofonový orchestr <strong>„Příliš mnoho saxofonů“</strong>
-        založil při ZUŠ Pelléova impresário <strong>Zdenko Kašpar</strong>
-        v&nbsp;roce <strong>1994</strong>.
-      </p>
-      <p>
-        Soubor je ojedinělý už svým obsazením, je složen pouze ze&nbsp;saxofonů.
-        V&nbsp;ansáblu jsou zastoupeny všechny
-        saxofon&nbsp;–&nbsp;od&nbsp;nejvyššího po&nbsp;nejhlubší.
-      </p>
-      <p>Repertoár tvoří skladby vážné, lehčí či&nbsp;jazzové.</p>
-			`,
-      },
-    },
-    {
-      block: Blocks.Events,
-      data: {
-        id: "koncerty",
-        title: "Koncerty",
-        empty: "V tuto chvíli nemáme naplánované žádné události.",
-      },
-    },
-    {
-      block: Blocks.Gallery,
-      data: {
-        id: "galerie",
-        title: "Galerie",
+        text: `<p>Jsme saxofonový kvartet z Prahy.</p>`,
       },
     },
     {
@@ -92,8 +63,13 @@ export const data: Data = {
         contacts: [
           {
             type: ContactType.Mail,
-            text: "nikdyneni@prilismnohosaxofonu.cz",
-            link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
+            text: "taksi@jaksisaxy.cz",
+            link: "mailto:taksi@jaksisaxy.cz",
+          },
+          {
+            type: ContactType.Instagram,
+            text: "jaksisaxy",
+            link: "https://www.instagram.com/jaksisaxy/",
           },
         ],
       },
@@ -107,8 +83,6 @@ export const data: Data = {
         items: [
           { title: "🎷", link: "#title" },
           { title: "About", link: "#about" },
-          { title: "Concerts", link: "#concerts" },
-          { title: "Gallery", link: "#gallery" },
           { title: "Contacts", link: "#contacts" },
           { title: "Cz", link: "/" },
         ],
@@ -118,8 +92,8 @@ export const data: Data = {
       block: Blocks.Cover,
       data: {
         id: "title",
-        firstTitle: "Too many",
-        secondTitle: "saxophones",
+        firstTitle: "Jaksi",
+        secondTitle: "saxy",
       },
     },
     {
@@ -127,25 +101,7 @@ export const data: Data = {
       data: {
         id: "about",
         title: "About",
-        text: `
-			<p>The saxophone orchestra of Prague <strong>“Příliš mnoho saxofonů” - “Too many saxophones”</strong> - was established by bandmaster <strong>Zdenko Kašpar</strong> in <strong>1994</strong>.</p>
-      <p>The orchestra is a unique ensemble of only saxophones – from soprano to bass.</p>
-			`,
-      },
-    },
-    {
-      block: Blocks.Events,
-      data: {
-        id: "concerts",
-        title: "Concerts",
-        empty: "We do not have any events scheduled at this time.",
-      },
-    },
-    {
-      block: Blocks.Gallery,
-      data: {
-        id: "gallery",
-        title: "Gallery",
+        text: `<p>The saxophone quartet from Prague</p>`,
       },
     },
     {
@@ -156,8 +112,13 @@ export const data: Data = {
         contacts: [
           {
             type: ContactType.Mail,
-            text: "nikdyneni@prilismnohosaxofonu.cz",
-            link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
+            text: "taksi@jaksisaxy.cz",
+            link: "mailto:taksi@jaksisaxy.cz",
+          },
+          {
+            type: ContactType.Instagram,
+            text: "jaksisaxy",
+            link: "https://www.instagram.com/jaksisaxy/",
           },
         ],
       },
