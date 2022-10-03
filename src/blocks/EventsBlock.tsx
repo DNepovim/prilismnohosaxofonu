@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { BlockProps } from "../blocks"
+import { LargeText } from "../components/LargeText"
 import { Section } from "../components/Section"
 import { theme } from "../theme"
 import { tp } from "../utils/tp"
@@ -25,9 +26,15 @@ interface Event {
   }
 }
 
-export type EventsBlockProps = BlockProps
+export interface EventsBlockProps extends BlockProps {
+  empty: string
+}
 
-export const EventsBlock: React.FC<EventsBlockProps> = ({ id, title }) => {
+export const EventsBlock: React.FC<EventsBlockProps> = ({
+  id,
+  title,
+  empty,
+}) => {
   const {
     allCalendarEvent: { edges: events },
   } = useStaticQuery<CalendarResponse>(graphql`
@@ -56,9 +63,11 @@ export const EventsBlock: React.FC<EventsBlockProps> = ({ id, title }) => {
 
   return (
     <Section id={id} title={title}>
-      {events.map(({ node: event }) => (
-        <EventRow key={event.id} {...event} />
-      ))}
+      {events.length ? (
+        events.map(({ node: event }) => <EventRow key={event.id} {...event} />)
+      ) : (
+        <LargeText>{empty}</LargeText>
+      )}
     </Section>
   )
 }
