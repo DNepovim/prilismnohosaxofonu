@@ -30,6 +30,7 @@ export const MobileNavigation: React.FC<{
       <Hamburger
         color={"black"}
         toggled={isOpened}
+        label="Menu"
         onToggle={() => setIsOpened(!isOpened)}
       />
     </>
