@@ -52,7 +52,27 @@ export const data: Data = {
       data: {
         id: "o-nas",
         title: "O nás",
-        text: `<p>Jsme saxofonový kvartet z Prahy.</p>`,
+        text: `
+          <p>
+            Saxofonové kvarteto <strong>Jaksi saxy</strong> vzniklo v roce
+            <strong>2020</strong>, když si čtyři členové saxofonového orchestru
+            <a
+              href="https://www.prilismnohosaxofonu.cz"
+              target="_blank"
+              rel="noreferrer noopener"
+              ><strong>Příliš mnoho saxofonů</strong></a> řekli, že by chtěli zkusit hrát i&nbsp;v&nbsp;menším
+              uskupení.</p><p>Repertoár se nám neustále rozšiřuje. Mezi stálice patří
+              ústřední melodie ze&nbsp;seriálu <strong>Game&nbsp;of&nbsp;Thrones</strong>, medley skladeb z&nbsp;<strong>Pirátů&nbsp;z&nbsp;Karibiku</strong>, <strong>Palladio</strong> skladatele <strong>Karla&nbsp;Jenkinse</strong>, <strong>Libertango
+              Astora Piazzolly</strong>, pár skladeb kapely <strong>Beatles</strong> (<strong>All&nbsp;You&nbsp;Need&nbsp;Is
+              &nbsp;Love</strong>, <strong>When&nbsp;I’m&nbsp;64</strong>…), od&nbsp;českých autorů <strong>Ježka</strong>, <strong>Voskovce</strong> a&nbsp;<strong>Wericha</strong>
+              hrajeme skladby <strong>V&nbsp;domě&nbsp;střaší&nbsp;duch</strong> a&nbsp;<strong>Kat&nbsp;a&nbsp;blázen</strong>, v&nbsp;neposlední
+              řadě hrajeme <strong>Rondeau&nbsp;from&nbsp;Abdelazer</strong> od&nbsp;<strong>Henryho&nbsp;Purcella</strong>.</p><p>Na&nbsp;soprán
+              saxofon hraje <strong>Anna&nbsp;Bláhová</strong>, na&nbsp;alt saxofon <strong>David&nbsp;Makovský</strong>, na
+              &nbsp;tenor saxofon <strong>Vojtěch&nbsp;Cehák</strong> a&nbsp;na&nbsp;nejhlubší (a&nbsp;zároveň největší)
+              baryton saxofon hraje <strong>David&nbsp;Houška</strong>.</p><p>Všichni členové kvartetu nosí
+              <strong>dioptrické brýle</strong>, což je naším poznávacím znamením.</strong>
+          </p>
+        `,
       },
     },
     {
