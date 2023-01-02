@@ -55,18 +55,30 @@ export const data: Data = {
         id: "o-nas",
         title: "O nás",
         text: `
-			<p>
-        Studentský saxofonový orchestr <strong>„Příliš mnoho saxofonů“</strong>
-        založil při ZUŠ Pelléova impresário <strong>Zdenko Kašpar</strong>
-        v&nbsp;roce <strong>1994</strong>.
-      </p>
-      <p>
-        Soubor je ojedinělý už svým obsazením, je složen pouze ze&nbsp;saxofonů.
-        V&nbsp;ansáblu jsou zastoupeny všechny
-        saxofon&nbsp;–&nbsp;od&nbsp;nejvyššího po&nbsp;nejhlubší.
-      </p>
-      <p>Repertoár tvoří skladby vážné, lehčí či&nbsp;jazzové.</p>
-			`,
+          <p>
+            Saxofonový orchestr „<strong>Příliš mnoho saxofonů</strong>“ založil
+            při ZUŠ Pelléova impresário <strong>Zdenko Kašpar</strong> v&nbsp;roce <strong>1994</strong>.
+            V&nbsp;současné době se&nbsp;orchestr skládá převážně
+            z&nbsp;bývalých žáků impresária a&nbsp;i&nbsp;jeho zkoušky
+            se&nbsp;přesunuly mimo prostory školy.
+          </p>
+          <p>
+            Soubor je ojedinělý už svým obsazením, je složen <strong>pouze
+            ze&nbsp;saxofonů</strong>. V&nbsp;ansámblu jsou zastoupeny všechny
+            saxofon&nbsp;–&nbsp;od basového po&nbsp;sopranino.
+          </p>
+          <p>
+            Orchestr v&nbsp;minulosti několikrát přivezl <strong>úspěchy a&nbsp;ceny</strong>
+            z&nbsp;řady soutěží.
+          </p>
+          <p>
+            Repertoár tvoří skladby vážné, za&nbsp;zmínku stojí <strong>Slovanský tanec</strong>
+            od&nbsp;<strong>Antonína Dvořáka</strong> či&nbsp;koledy od&nbsp;<strong>Adama Michny</strong>, lehčí,
+            jako například <strong>Pochod stoprocentních mužů</strong> či <strong>Šumění deště</strong> od <strong>Václava
+            Pokorného</strong> a&nbsp;jazzové, z&nbsp;nich lze zmínit <strong>Entertainer</strong> či
+            <strong>Ragtime dance</strong> od&nbsp;<strong>Scotta Joplina</strong>.
+          </p>
+        `,
       },
     },
     {
