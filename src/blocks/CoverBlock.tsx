@@ -58,6 +58,9 @@ const ImageWrapper = styled.figure`
   top: 0;
   max-width: calc(100% - 2rem);
   margin: 0;
+  border: 6px solid ${theme.color.brand}50;
+  border-radius: 10px;
+  overflow: hidden;
 `
 
 const Title = styled.h1`

@@ -87,7 +87,6 @@ const NavLink = styled(Link)`
   position: relative;
   display: block;
   padding: 0.4rem;
-  transition: color 300ms;
   color: ${({ active }: { active: 0 | 1 }) =>
     active ? theme.color.brand : "black"};
   cursor: pointer;

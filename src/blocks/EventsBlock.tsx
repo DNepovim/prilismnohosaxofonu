@@ -63,7 +63,7 @@ export const EventsBlock: React.FC<EventsBlockProps> = ({
 
   return (
     <Section id={id} title={title}>
-      {events.length ? (
+      {events?.length ? (
         events.map(({ node: event }) => <EventRow key={event.id} {...event} />)
       ) : (
         <LargeText>{empty}</LargeText>
@@ -124,11 +124,13 @@ const Row = styled.div`
   background-color: white;
 
   &:first-of-type {
-    border-radius: 10px 10px 0 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   &:last-of-type {
-    border-radius: 0 0 10px 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   &:not(:last-of-type) {
