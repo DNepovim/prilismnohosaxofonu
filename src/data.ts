@@ -82,11 +82,6 @@ export const data: Data = {
         title: "Kontakty",
         contacts: [
           {
-            type: ContactType.Mail,
-            text: "taksi@jaksisaxy.cz",
-            link: "mailto:taksi@jaksisaxy.cz",
-          },
-          {
             type: ContactType.Instagram,
             text: "jaksisaxy",
             link: "https://www.instagram.com/jaksisaxy/",
