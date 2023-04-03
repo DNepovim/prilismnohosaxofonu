@@ -82,6 +82,11 @@ export const data: Data = {
         title: "Kontakty",
         contacts: [
           {
+            type: ContactType.Mail,
+            text: "jsme@jaksisaxy.cz",
+            link: "mailto:jsme@jaksisaxy.cz",
+          },
+          {
             type: ContactType.Instagram,
             text: "jaksisaxy",
             link: "https://www.instagram.com/jaksisaxy/",
@@ -127,8 +132,8 @@ export const data: Data = {
         contacts: [
           {
             type: ContactType.Mail,
-            text: "taksi@jaksisaxy.cz",
-            link: "mailto:taksi@jaksisaxy.cz",
+            text: "jsme@jaksisaxy.cz",
+            link: "mailto:jsme@jaksisaxy.cz",
           },
           {
             type: ContactType.Instagram,
