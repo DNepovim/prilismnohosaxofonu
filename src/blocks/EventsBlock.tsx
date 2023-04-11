@@ -92,6 +92,14 @@ const EventRow: React.FC<Event> = ({
           month: "short",
           day: "numeric",
         })}
+        {!allDay && (
+          <Time>
+            {startDate.toLocaleTimeString("cs-CZ", {
+              timeZone: "CET",
+              timeStyle: "short",
+            })}
+          </Time>
+        )}
       </StyledDate>
       <Desc>
         <Title>
@@ -103,16 +111,7 @@ const EventRow: React.FC<Event> = ({
             title
           )}
         </Title>
-        {!allDay && (
-          <Time>
-            {startDate.toLocaleTimeString("cs-CZ", {
-              timeZone: "CET",
-              timeStyle: "short",
-            })}
-          </Time>
-        )}
-        {!allDay && location && ", "}
-        {location && <Time>{tp(location)}</Time>}
+        {location && tp(location)}
       </Desc>
     </Row>
   )
@@ -142,7 +141,9 @@ const StyledDate = styled.time`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   font-size: 1.6em;
+  line-height: 1em;
   padding: 1rem;
   flex: 0 0 4.4rem;
   font-family: ${theme.fonts.heading};
@@ -154,6 +155,10 @@ const StyledDate = styled.time`
     padding: 1.6rem;
     flex: 0 0 6.4rem;
   }
+`
+const Time = styled.span`
+  font-size: 1rem;
+  line-height: 1em;
 `
 
 const Desc = styled.div`
@@ -168,5 +173,3 @@ const Title = styled.h3`
     font-size: 1.6em;
   }
 `
-
-const Time = styled.span``
