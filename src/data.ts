@@ -86,7 +86,7 @@ export const data: Data = {
       data: {
         id: "koncerty",
         title: "Koncerty",
-        empty: "V tuto chvíli nemáme naplánované žádné události.",
+        empty: "V tuto chvíli nemáme naplánované žádné koncerty.",
       },
     },
     {
@@ -150,7 +150,7 @@ export const data: Data = {
       data: {
         id: "concerts",
         title: "Concerts",
-        empty: "We do not have any events scheduled at this time.",
+        empty: "We do not have any concerts scheduled at this time.",
       },
     },
     {
