@@ -65,7 +65,7 @@ export const data: Data = {
           <p>
             Soubor je ojedinělý už svým obsazením, je složen <strong>pouze
             ze&nbsp;saxofonů</strong>. V&nbsp;ansámblu jsou zastoupeny všechny
-            saxofon&nbsp;–&nbsp;od basového po&nbsp;sopranino.
+            saxofony&nbsp;–&nbsp;od basového po&nbsp;sopranino.
           </p>
           <p>
             Orchestr v&nbsp;minulosti několikrát přivezl <strong>úspěchy a&nbsp;ceny</strong>
