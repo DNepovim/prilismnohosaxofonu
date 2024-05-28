@@ -24,7 +24,7 @@ export const CoverBlock: React.FC<CoverBlockProps> = ({
       </Title>
       <ImageWrapper>
         <StaticImage
-          src="../images/cover.jpg"
+          src="../images/orchestra/cover.jpg"
           alt=""
           layout="constrained"
           loading="eager"

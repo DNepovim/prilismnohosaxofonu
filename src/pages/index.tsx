@@ -1,19 +1,21 @@
 import * as React from "react"
-import type { HeadFC } from "gatsby"
+import { graphql, PageProps, type HeadFC } from "gatsby"
 import { Global } from "@emotion/react"
 import { globalStyles } from "../globalStyles"
 import { theme } from "../theme"
-import { data, Language } from "../data"
-import { blocksComponents } from "../blocks"
+import { data as staticData, Language, Sites } from "../data"
+import { Blocks, blocksComponents } from "../blocks"
 
-const IndexPage = () => {
+const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
+  const site = process.env.GATSBY_SITE as Sites
   return (
     <main>
       <Global styles={globalStyles} />
-      {data[Language.Cz].map((item) =>
+      {staticData[site][Language.Cz].map((item) =>
         React.createElement(blocksComponents[item.block] as any, {
           ...(item.data as any),
           key: item.data.id,
+          ...(item.block === Blocks.Gallery ? { images: data.allFile.edges } : {}),
         })
       )}
     </main>
@@ -32,9 +34,21 @@ export const Head: HeadFC = () => (
     <meta name="og:title" content="Příliš mnoho saxofonů" />
     <meta name="og:description" content="Saxofonový orchestr z Prahy" />
     <meta property="og:type" content="article" />
-    <meta
-      property="og:image"
-      content="https://www.prilismnohosaxofonu.cz/fbCover.png"
-    />
+    <meta property="og:image" content="https://www.prilismnohosaxofonu.cz/fbCover.png" />
   </>
 )
+
+export const query = graphql`
+  query IndexPage {
+    allFile(filter: { relativeDirectory: { eq: "gallery" } }, sort: { relativePath: ASC }) {
+      edges {
+        node {
+          childImageSharp {
+            gatsbyImageData
+          }
+          id
+        }
+      }
+    }
+  }
+`

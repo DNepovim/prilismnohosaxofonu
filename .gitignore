@@ -5,3 +5,5 @@ src/gatsby-types.d.ts
 yarn-error.log
 .env
 .env.development
+.vercel
+.env*.local

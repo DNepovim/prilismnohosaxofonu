@@ -6,55 +6,64 @@ import { GalleryBlockProps } from "./blocks/GalleryBlock"
 import { NavigationBlockProps } from "./blocks/NavigationBlock"
 import { TextBlockProps } from "./blocks/TextBlock"
 
+export enum Sites {
+  Orchestra = "orchestra",
+  Quarter = "quarter",
+}
+
 export enum Language {
   Cz = "cz",
   En = "en",
 }
 
 type Data = Record<
-  Language,
-  {
-    block: Blocks
-    data:
-      | NavigationBlockProps
-      | CoverBlockProps
-      | TextBlockProps
-      | GalleryBlockProps
-      | EventsBlockProps
-      | ContactBlockProps
-  }[]
+  Sites,
+  Record<
+    Language,
+    {
+      block: Blocks
+      data:
+        | NavigationBlockProps
+        | CoverBlockProps
+        | TextBlockProps
+        | GalleryBlockProps
+        | EventsBlockProps
+        | ContactBlockProps
+    }[]
+  >
 >
 
 export const data: Data = {
-  [Language.Cz]: [
-    {
-      block: Blocks.Navigation,
-      data: {
-        id: "nav",
-        items: [
-          { title: "🎷", link: "#uvod" },
-          { title: "O nás", link: "#o-nas" },
-          { title: "Koncerty", link: "#koncerty" },
-          { title: "Galerie", link: "#galerie" },
-          { title: "Kontakty", link: "#kontakty" },
-          { title: "En", link: "en" },
-        ],
+  [Sites.Orchestra]: {
+    [Language.Cz]: [
+      {
+        block: Blocks.Navigation,
+        data: {
+          id: "nav",
+          items: [
+            { title: "🎷", link: "#uvod" },
+            { title: "O nás", link: "#o-nas" },
+            { title: "Koncerty", link: "#koncerty" },
+            { title: "Galerie", link: "#galerie" },
+            { title: "Kontakty", link: "#kontakty" },
+            { title: "En", link: "en" },
+          ],
+        },
       },
-    },
-    {
-      block: Blocks.Cover,
-      data: {
-        id: "uvod",
-        firstTitle: "Příliš mnoho",
-        secondTitle: "saxofonů",
+      {
+        block: Blocks.Cover,
+        data: {
+          id: "uvod",
+          firstTitle: "Příliš mnoho",
+          secondTitle: "saxofonů",
+        },
       },
-    },
-    {
-      block: Blocks.Text,
-      data: {
-        id: "o-nas",
-        title: "O nás",
-        text: `
+      {
+        block: Blocks.Text,
+        data: {
+          id: "o-nas",
+          title: "O nás",
+          text: `
           <p>
             Saxofonový orchestr „<strong>Příliš mnoho saxofonů</strong>“ založil
             při ZUŠ Pelléova impresário <strong>Zdenko Kašpar</strong> v&nbsp;roce <strong>1994</strong>.
@@ -79,100 +88,258 @@ export const data: Data = {
             <strong>Ragtime dance</strong> od&nbsp;<strong>Scotta Joplina</strong>.
           </p>
         `,
+        },
       },
-    },
-    {
-      block: Blocks.Events,
-      data: {
-        id: "koncerty",
-        title: "Koncerty",
-        empty: "V tuto chvíli nemáme naplánované žádné koncerty.",
+      {
+        block: Blocks.Events,
+        data: {
+          id: "koncerty",
+          title: "Koncerty",
+          empty: "V tuto chvíli nemáme naplánované žádné koncerty.",
+        },
       },
-    },
-    {
-      block: Blocks.Gallery,
-      data: {
-        id: "galerie",
-        title: "Galerie",
+      {
+        block: Blocks.Gallery,
+        data: {
+          id: "galerie",
+          title: "Galerie",
+        },
       },
-    },
-    {
-      block: Blocks.Contact,
-      data: {
-        id: "kontakty",
-        title: "Kontakty",
-        contacts: [
-          {
-            type: ContactType.Mail,
-            text: "nikdyneni@prilismnohosaxofonu.cz",
-            link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
-          },
-        ],
+      {
+        block: Blocks.Contact,
+        data: {
+          id: "kontakty",
+          title: "Kontakty",
+          contacts: [
+            {
+              type: ContactType.Mail,
+              text: "nikdyneni@prilismnohosaxofonu.cz",
+              link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
+            },
+          ],
+        },
       },
-    },
-  ],
-  [Language.En]: [
-    {
-      block: Blocks.Navigation,
-      data: {
-        id: "nav",
-        items: [
-          { title: "🎷", link: "#title" },
-          { title: "About", link: "#about" },
-          { title: "Concerts", link: "#concerts" },
-          { title: "Gallery", link: "#gallery" },
-          { title: "Contacts", link: "#contacts" },
-          { title: "Cz", link: "/" },
-        ],
+    ],
+    [Language.En]: [
+      {
+        block: Blocks.Navigation,
+        data: {
+          id: "nav",
+          items: [
+            { title: "🎷", link: "#title" },
+            { title: "About", link: "#about" },
+            { title: "Concerts", link: "#concerts" },
+            { title: "Gallery", link: "#gallery" },
+            { title: "Contacts", link: "#contacts" },
+            { title: "Cz", link: "/" },
+          ],
+        },
       },
-    },
-    {
-      block: Blocks.Cover,
-      data: {
-        id: "title",
-        firstTitle: "Too many",
-        secondTitle: "saxophones",
+      {
+        block: Blocks.Cover,
+        data: {
+          id: "title",
+          firstTitle: "Too many",
+          secondTitle: "saxophones",
+        },
       },
-    },
-    {
-      block: Blocks.Text,
-      data: {
-        id: "about",
-        title: "About",
-        text: `
+      {
+        block: Blocks.Text,
+        data: {
+          id: "about",
+          title: "About",
+          text: `
 			<p>The saxophone orchestra of Prague <strong>“Příliš mnoho saxofonů” - “Too many saxophones”</strong> - was established by bandmaster <strong>Zdenko Kašpar</strong> in <strong>1994</strong>.</p>
       <p>The orchestra is a unique ensemble of only saxophones – from soprano to bass.</p>
 			`,
+        },
       },
-    },
-    {
-      block: Blocks.Events,
-      data: {
-        id: "concerts",
-        title: "Concerts",
-        empty: "We do not have any concerts scheduled at this time.",
+      {
+        block: Blocks.Events,
+        data: {
+          id: "concerts",
+          title: "Concerts",
+          empty: "We do not have any concerts scheduled at this time.",
+        },
       },
-    },
-    {
-      block: Blocks.Gallery,
-      data: {
-        id: "gallery",
-        title: "Gallery",
+      {
+        block: Blocks.Gallery,
+        data: {
+          id: "gallery",
+          title: "Gallery",
+        },
       },
-    },
-    {
-      block: Blocks.Contact,
-      data: {
-        id: "contacts",
-        title: "Contacts",
-        contacts: [
-          {
-            type: ContactType.Mail,
-            text: "nikdyneni@prilismnohosaxofonu.cz",
-            link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
-          },
-        ],
+      {
+        block: Blocks.Contact,
+        data: {
+          id: "contacts",
+          title: "Contacts",
+          contacts: [
+            {
+              type: ContactType.Mail,
+              text: "nikdyneni@prilismnohosaxofonu.cz",
+              link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
+            },
+          ],
+        },
       },
-    },
-  ],
+    ],
+  },
+  [Sites.Quarter]: {
+    [Language.Cz]: [
+      {
+        block: Blocks.Navigation,
+        data: {
+          id: "nav",
+          items: [
+            { title: "🎷", link: "#uvod" },
+            { title: "O nás", link: "#o-nas" },
+            { title: "Koncerty", link: "#koncerty" },
+            { title: "Galerie", link: "#galerie" },
+            { title: "Kontakty", link: "#kontakty" },
+            { title: "En", link: "en" },
+          ],
+        },
+      },
+      {
+        block: Blocks.Cover,
+        data: {
+          id: "uvod",
+          firstTitle: "Jaksi",
+          secondTitle: "saxy",
+        },
+      },
+      {
+        block: Blocks.Text,
+        data: {
+          id: "o-nas",
+          title: "O nás",
+          text: `
+          <p>
+            Saxofonové kvarteto <strong>Jaksi saxy</strong> vzniklo v roce
+            <strong>2020</strong>, když si čtyři členové saxofonového orchestru
+            <a
+              href="https://www.prilismnohosaxofonu.cz"
+              target="_blank"
+              rel="noreferrer noopener"
+              ><strong>Příliš mnoho saxofonů</strong></a> řekli, že by chtěli zkusit hrát i&nbsp;v&nbsp;menším
+              uskupení.</p><p>Repertoár se nám neustále rozšiřuje. Mezi stálice patří
+              ústřední melodie ze&nbsp;seriálu <strong>Game&nbsp;of&nbsp;Thrones</strong>, medley skladeb z&nbsp;<strong>Pirátů&nbsp;z&nbsp;Karibiku</strong>, <strong>Palladio</strong> skladatele <strong>Karla&nbsp;Jenkinse</strong>, <strong>Libertango
+              Astora Piazzolly</strong>, pár skladeb kapely <strong>Beatles</strong> (<strong>All&nbsp;You&nbsp;Need&nbsp;Is
+              &nbsp;Love</strong>, <strong>When&nbsp;I’m&nbsp;64</strong>…), od&nbsp;českých autorů <strong>Ježka</strong>, <strong>Voskovce</strong> a&nbsp;<strong>Wericha</strong>
+              hrajeme skladby <strong>V&nbsp;domě&nbsp;střaší&nbsp;duch</strong> a&nbsp;<strong>Kat&nbsp;a&nbsp;blázen</strong>, v&nbsp;neposlední
+              řadě hrajeme <strong>Rondeau&nbsp;from&nbsp;Abdelazer</strong> od&nbsp;<strong>Henryho&nbsp;Purcella</strong>.</p><p>Na&nbsp;soprán
+              saxofon hraje <strong>Anna&nbsp;Bláhová</strong>, na&nbsp;alt saxofon <strong>David&nbsp;Makovský</strong>, na
+              &nbsp;tenor saxofon <strong>Vojtěch&nbsp;Cehák</strong> a&nbsp;na&nbsp;nejhlubší (a&nbsp;zároveň největší)
+              baryton saxofon hraje <strong>David&nbsp;Houška</strong>.</p><p>Všichni členové kvartetu nosí
+              <strong>dioptrické brýle</strong>, což je naším poznávacím znamením.</strong>
+          </p>
+
+        `,
+        },
+      },
+      {
+        block: Blocks.Events,
+        data: {
+          id: "koncerty",
+          title: "Koncerty",
+          empty: "V tuto chvíli nemáme naplánované žádné koncerty.",
+        },
+      },
+      {
+        block: Blocks.Gallery,
+        data: {
+          id: "galerie",
+          title: "Galerie",
+        },
+      },
+      {
+        block: Blocks.Contact,
+        data: {
+          id: "kontakty",
+          title: "Kontakty",
+          contacts: [
+            {
+              type: ContactType.Mail,
+              text: "taksi@jaksisaxy.cz",
+              link: "mailto:taksi@jaksisaxy.cz",
+            },
+            {
+              type: ContactType.Instagram,
+              text: "jaksisaxy",
+              link: "https://www.instagram.com/jaksisaxy/",
+            },
+          ],
+        },
+      },
+    ],
+    [Language.En]: [
+      {
+        block: Blocks.Navigation,
+        data: {
+          id: "nav",
+          items: [
+            { title: "🎷", link: "#title" },
+            { title: "About", link: "#about" },
+            { title: "Concerts", link: "#concerts" },
+            { title: "Gallery", link: "#gallery" },
+            { title: "Contacts", link: "#contacts" },
+            { title: "Cz", link: "/" },
+          ],
+        },
+      },
+      {
+        block: Blocks.Cover,
+        data: {
+          id: "title",
+          firstTitle: "Jaksi",
+          secondTitle: "saxy",
+        },
+      },
+      {
+        block: Blocks.Text,
+        data: {
+          id: "about",
+          title: "About",
+          text: `
+			<p>The saxophone quarter of Prague&hellip;</p>
+			`,
+        },
+      },
+      {
+        block: Blocks.Events,
+        data: {
+          id: "concerts",
+          title: "Concerts",
+          empty: "We do not have any concerts scheduled at this time.",
+        },
+      },
+      {
+        block: Blocks.Gallery,
+        data: {
+          id: "gallery",
+          title: "Gallery",
+        },
+      },
+      {
+        block: Blocks.Contact,
+        data: {
+          id: "contacts",
+          title: "Contacts",
+          contacts: [
+            {
+              type: ContactType.Mail,
+              text: "taksi@jaksisaxy.cz",
+              link: "mailto:taksi@jaksisaxy.cz",
+            },
+            {
+              type: ContactType.Instagram,
+              text: "jaksisaxy",
+              link: "https://www.instagram.com/jaksisaxy/",
+            },
+          ],
+        },
+      },
+    ],
+  },
 }

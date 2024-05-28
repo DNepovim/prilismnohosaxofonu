@@ -1,16 +1,11 @@
 import type { GatsbyConfig } from "gatsby"
 import path from "path"
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: `Příliš mnoho saxofonů`,
-    siteUrl: `https://www.prilismnohosaxofonu.cz`,
-    description: `Saxofonový orchestr z Prahy`,
-    author: "Dominik Bláha — www.dominikblaha.cz",
-  },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     `gatsby-plugin-image`,
@@ -28,7 +23,12 @@ const config: GatsbyConfig = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: path.join(__dirname, `src`, `images`),
+        path: path.join(
+          __dirname,
+          `src`,
+          `images`,
+          process.env.GATSBY_SITE ?? ""
+        ),
       },
     },
     {
@@ -41,7 +41,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-google-calendar`,
       options: {
-        calendarIds: ["8n0jfbuqg4n5v1lvol7b4n23b0@group.calendar.google.com"],
+        calendarIds: [process.env.GATSBY_GOOGLE_CALENDAR_ID],
         timeMin: new Date().toISOString(),
         maxResults: 20,
         singleEvents: true,
@@ -51,7 +51,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "G-F1EPN7YBZQ",
+        trackingId: process.env.GA_TRACKING_ID,
         head: false,
         anonymize: true,
         respectDNT: true,
