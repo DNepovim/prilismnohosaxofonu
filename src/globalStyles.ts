@@ -9,7 +9,7 @@ export const globalStyles = css`
 
   body {
     margin: 0;
-    padding: 0 0 6em;
+    padding: 0;
     font-size: 18px;
     font-family: ${theme.fonts.body};
     background: linear-gradient(white, #faecd1);

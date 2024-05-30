@@ -5,13 +5,14 @@ import { globalStyles } from "../globalStyles"
 import { theme } from "../theme"
 import { data as staticData, Language, Sites } from "../data"
 import { Blocks, blocksComponents } from "../blocks"
+import styled from "@emotion/styled"
 
 const site = process.env.GATSBY_SITE as Sites
 const { meta, blocks } = staticData[site][Language.Cz]
 
-const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
-  return (
-    <main>
+const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => (
+  <>
+    <Main>
       <Global styles={globalStyles} />
       {blocks.map((item) =>
         React.createElement(blocksComponents[item.block] as any, {
@@ -20,9 +21,16 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
           ...(item.block === Blocks.Gallery ? { images: data.allFile.edges } : {}),
         })
       )}
-    </main>
-  )
-}
+    </Main>
+    <Credtis>
+      Web zkomponoval{" "}
+      <a href="mailto:jsem@dominikblaha.cz" target="_blank">
+        Dominik Bláha
+      </a>
+      .
+    </Credtis>
+  </>
+)
 
 export default IndexPage
 
@@ -52,5 +60,20 @@ export const query = graphql`
         }
       }
     }
+  }
+`
+
+const Main = styled.main`
+  padding-bottom: 2em;
+`
+
+const Credtis = styled.p`
+  color: #adadad;
+  font-size: 0.6rem;
+  text-align: right;
+  padding: 1em;
+  margin: 0;
+  a {
+    color: ${theme.color.brand};
   }
 `
