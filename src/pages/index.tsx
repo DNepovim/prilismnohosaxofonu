@@ -6,12 +6,14 @@ import { theme } from "../theme"
 import { data as staticData, Language, Sites } from "../data"
 import { Blocks, blocksComponents } from "../blocks"
 
+const site = process.env.GATSBY_SITE as Sites
+const { meta, blocks } = staticData[site][Language.Cz]
+
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
-  const site = process.env.GATSBY_SITE as Sites
   return (
     <main>
       <Global styles={globalStyles} />
-      {staticData[site][Language.Cz].map((item) =>
+      {blocks.map((item) =>
         React.createElement(blocksComponents[item.block] as any, {
           ...(item.data as any),
           key: item.data.id,
@@ -26,15 +28,15 @@ export default IndexPage
 
 export const Head: HeadFC = () => (
   <>
-    <title>Příliš mnoho saxofonů</title>
-    <meta name="description" content="Saxofonový orchestr z Prahy" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
     <meta name="author" content="Dominik Bláha | jsem@dominikblaha.cz" />
-    <meta name="url" content="https://www.prilismnohosaxofonu.cz" />
+    <meta name="url" content={meta.url} />
     <meta name="theme-color" content={theme.color.brand} />
-    <meta name="og:title" content="Příliš mnoho saxofonů" />
-    <meta name="og:description" content="Saxofonový orchestr z Prahy" />
+    <meta name="og:title" content={meta.title} />
+    <meta name="og:description" content={meta.description} />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://www.prilismnohosaxofonu.cz/fbCover.png" />
+    <meta property="og:image" content={meta.cover} />
   </>
 )
 

@@ -1,17 +1,19 @@
 import * as React from "react"
-import { graphql, type HeadFC, type PageProps } from "gatsby"
+import { graphql, PageProps, type HeadFC } from "gatsby"
 import { Global } from "@emotion/react"
 import { globalStyles } from "../globalStyles"
 import { theme } from "../theme"
 import { data as staticData, Language, Sites } from "../data"
 import { Blocks, blocksComponents } from "../blocks"
 
-const EnPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
-  const site = process.env.GATSBY_SITE as Sites
+const site = process.env.GATSBY_SITE as Sites
+const { meta, blocks } = staticData[site][Language.En]
+
+const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
     <main>
       <Global styles={globalStyles} />
-      {staticData[site][Language.En].map((item) =>
+      {blocks.map((item) =>
         React.createElement(blocksComponents[item.block] as any, {
           ...(item.data as any),
           key: item.data.id,
@@ -22,24 +24,24 @@ const EnPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   )
 }
 
-export default EnPage
+export default IndexPage
 
 export const Head: HeadFC = () => (
   <>
-    <title>Too many saxophones</title>
-    <meta name="description" content="The saxophone orchestra of Prague" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
     <meta name="author" content="Dominik Bláha | jsem@dominikblaha.cz" />
-    <meta name="url" content="https://www.prilismnohosaxofonu.cz/en" />
+    <meta name="url" content={meta.url} />
     <meta name="theme-color" content={theme.color.brand} />
-    <meta name="og:title" content="Too many saxophones" />
-    <meta name="og:description" content="The saxophone orchestra of Prague" />
+    <meta name="og:title" content={meta.title} />
+    <meta name="og:description" content={meta.description} />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://www.prilismnohosaxofonu.cz/fbCover.png" />
+    <meta property="og:image" content={meta.cover} />
   </>
 )
 
 export const query = graphql`
-  query EnPage {
+  query IndexPage {
     allFile(filter: { relativeDirectory: { eq: "gallery" } }, sort: { relativePath: ASC }) {
       edges {
         node {
