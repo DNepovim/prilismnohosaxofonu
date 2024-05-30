@@ -1,41 +1,49 @@
 import styled from "@emotion/styled"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import { BlockProps } from "../blocks"
 import { coverOnLoadAnimation, titleOnLoadAnimation } from "../globalStyles"
 import { theme } from "../theme"
+import { useStaticQuery, graphql } from "gatsby"
+import { Sites } from "../data"
 
 export interface CoverBlockProps extends BlockProps {
   firstTitle: string
   secondTitle: string
 }
 
-export const CoverBlock: React.FC<CoverBlockProps> = ({
-  id,
-  firstTitle,
-  secondTitle,
-}) => (
-  <CoverSection id={id}>
-    <CoverContainer>
-      <Title>
-        <span>{firstTitle}</span>
-        <br />
-        <span>{secondTitle}</span>
-      </Title>
-      <ImageWrapper>
-        <StaticImage
-          src="../images/orchestra/cover.jpg"
-          alt=""
-          layout="constrained"
-          loading="eager"
-          aspectRatio={1.5}
-          height={460}
-          breakpoints={[1380, 1200, 1000, 800, 690, 600, 500, 400, 300]}
-        />
-      </ImageWrapper>
-    </CoverContainer>
-  </CoverSection>
-)
+const site = process.env.GATSBY_SITE as Sites
+
+export const CoverBlock: React.FC<CoverBlockProps> = ({ id, firstTitle, secondTitle }) => {
+  const coverImage = useStaticQuery(graphql`
+    query HeaderQuery {
+      file(relativePath: { eq: "cover.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: CONSTRAINED, aspectRatio: 1.5, breakpoints: [1380, 1200, 1000, 800, 690, 600, 500, 400, 300])
+        }
+      }
+    }
+  `)
+  return (
+    <CoverSection id={id}>
+      <CoverContainer>
+        <Title>
+          <span>{firstTitle}</span>
+          <br />
+          <span>{secondTitle}</span>
+        </Title>
+        <ImageWrapper>
+          <GatsbyImage
+            image={coverImage.file.childImageSharp.gatsbyImageData}
+            alt=""
+            loading="eager"
+            style={{ maxHeight: 460, maxWidth: 690 }}
+          />
+        </ImageWrapper>
+      </CoverContainer>
+    </CoverSection>
+  )
+}
 
 const CoverSection = styled.section`
   max-width: ${theme.layout.widths.default};
@@ -52,8 +60,7 @@ const CoverContainer = styled.div`
 `
 
 const ImageWrapper = styled.figure`
-  animation: ${coverOnLoadAnimation} 900ms 300ms ${theme.animation.function}
-    both;
+  animation: ${coverOnLoadAnimation} 900ms 300ms ${theme.animation.function} both;
   position: absolute;
   top: 0;
   max-width: calc(100% - 2rem);
@@ -78,8 +85,7 @@ const Title = styled.h1`
       font-size: 6vw;
       background-color: #fff;
       position: relative;
-      animation: ${titleOnLoadAnimation} 900ms 600ms ${theme.animation.function}
-        both;
+      animation: ${titleOnLoadAnimation} 900ms 600ms ${theme.animation.function} both;
     }
 
     &:last-of-type {
@@ -87,8 +93,7 @@ const Title = styled.h1`
       margin-left: 3rem;
       background-color: ${theme.color.brand};
       position: relative;
-      animation: ${titleOnLoadAnimation} 900ms 300ms ${theme.animation.function}
-        both;
+      animation: ${titleOnLoadAnimation} 900ms 300ms ${theme.animation.function} both;
     }
   }
 
