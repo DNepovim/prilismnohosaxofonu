@@ -333,8 +333,18 @@ export const data: Data = {
             id: "about",
             title: "About",
             text: `
-			<p>The saxophone quarter of Prague&hellip;</p>
-			`,
+          <p>
+            The Saxophone Quartet <strong>Jaksi saxy</strong> was formed in <strong>2020</strong> when four members of the <a
+              href="https://www.prilismnohosaxofonu.cz"
+              target="_blank"
+              rel="noreferrer noopener"><strong>Too Many Saxophones Orchestra</strong></a> said they wanted to try playing in a smaller group.</p>
+
+            <p>Our repertoire is constantly expanding. Standbys include the theme tunes from the <strong>Game of Thrones</strong> series, a medley of songs from <strong>Pirates of the Caribbean</strong>, <strong>Palladio</strong> by composer <strong>Karl Jenkins</strong>, <strong>Libertango</strong> by <strong>Astor Piazzolla</strong>, a couple of songs by the <strong>Beatles (All You Need Is Love, When I'm 64... )</strong>, from Czech composers <strong>Ježek</strong>, <strong>Voskovec</strong> and <strong>Werich</strong> we play the compositions <strong>In the House of the Ghost</strong> and <strong>The Hangman and the Fool</strong>, last but not least we play <strong>Rondeau from Abdelazer</strong> by <strong>Henry Purcell</strong>.</p>
+
+            <p>The soprano saxophone is played by <strong>Anna Bláhová</strong>, the alto saxophone by <strong>David Makovský</strong>, the tenor saxophone by <strong>Vojtěch Cehák</strong> and the deepest (and biggest) baritone saxophone by <strong>David Houška</strong>.</p>
+
+            <p>All members of the quartet wear <strong>dioptric glasses</strong>, which is our hallmark.</strong>
+          </p>`,
           },
         },
         {
