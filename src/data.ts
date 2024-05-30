@@ -37,7 +37,7 @@ export const data: Data = {
         title: "Příliš mnoho saxofonů",
         description: "Saxofonový orchestr z Prahy",
         url: "https://www.prilismnohosaxofonu.cz",
-        cover: "https://www.prilismnohosaxofonu.cz/fbCover.png",
+        cover: "https://www.prilismnohosaxofonu.cz/ogImageOrchestr.png",
       },
       blocks: [
         {
@@ -131,7 +131,7 @@ export const data: Data = {
         title: "Too many saxophones",
         description: "Saxophone orchestra from Prague",
         url: "https://www.prilismnohosaxofonu.cz",
-        cover: "https://www.prilismnohosaxofonu.cz/fbCover.png",
+        cover: "https://www.prilismnohosaxofonu.cz/ogImageOrchestr.png",
       },
       blocks: [
         {
@@ -206,7 +206,7 @@ export const data: Data = {
         title: "Jaksi saxy",
         description: "Saxofonový kvartet z Prahy",
         url: "https://www.jaksisaxy.cz",
-        cover: "https://www.jaksisaxy.cz/fbCover.png",
+        cover: "https://www.jaksisaxy.cz/ogImageKvartet.png",
       },
       blocks: [
         {
@@ -302,7 +302,7 @@ export const data: Data = {
         title: "Jaksi saxy",
         description: "Saxophone quarter from Prague",
         url: "https://www.jaksisaxy.cz",
-        cover: "https://www.jaksisaxy.cz/fbCover.png",
+        cover: "https://www.jaksisaxy.cz/ogImageKvartet.png",
       },
       blocks: [
         {
