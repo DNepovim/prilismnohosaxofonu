@@ -40,7 +40,7 @@ export const GalleryBlock: React.FC<GalleryBlockProps> = ({ id, title, images })
     <Section id={id} title={title}>
       <GalleryContainer>
         {imagesData.map(({ id, ...image }, index) => (
-          <GalleryItem onClick={() => setImageIndex(index)}>
+          <GalleryItem key={id} onClick={() => setImageIndex(index)}>
             <GatsbyImage
               key={id}
               image={image}

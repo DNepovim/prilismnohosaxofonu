@@ -92,33 +92,36 @@ export const data: Data = {
             <strong>Ragtime dance</strong> od&nbsp;<strong>Scotta Joplina</strong>.
           </p>
         `,
-      },
-    },
-    {
-      block: Blocks.Events,
-      data: {
-        id: "koncerty",
-        title: "Koncerty",
-        empty: "V tuto chvíli nemáme naplánované žádné koncerty.",
-      },
-    },
-    {
-      block: Blocks.Gallery,
-      data: {
-        id: "galerie",
-        title: "Galerie",
-      },
-    },
-    {
-      block: Blocks.Contact,
-      data: {
-        id: "kontakty",
-        title: "Kontakty",
-        contacts: [
-          {
-            type: ContactType.Mail,
-            text: "nikdyneni@prilismnohosaxofonu.cz",
-            link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
+          },
+        },
+        {
+          block: Blocks.Events,
+          data: {
+            id: "koncerty",
+            title: "Koncerty",
+            empty: "V tuto chvíli nemáme naplánované žádné koncerty.",
+          },
+        },
+        {
+          block: Blocks.Gallery,
+          data: {
+            id: "galerie",
+            title: "Galerie",
+            images: [],
+          },
+        },
+        {
+          block: Blocks.Contact,
+          data: {
+            id: "kontakty",
+            title: "Kontakty",
+            contacts: [
+              {
+                type: ContactType.Mail,
+                text: "nikdyneni@prilismnohosaxofonu.cz",
+                link: "mailto:nikdyneni@prilismnohosaxofonu.cz",
+              },
+            ],
           },
         },
         {
