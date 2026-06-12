@@ -38,17 +38,7 @@ const config: GatsbyConfig = {
         display: "swap",
       },
     },
-    {
-      resolve: `gatsby-source-google-calendar`,
-      options: {
-        calendarIds: [process.env.GATSBY_GOOGLE_CALENDAR_ID],
-        timeMin: new Date().toISOString(),
-        maxResults: 20,
-        singleEvents: true,
-        orderBy: "startTime",
-      },
-    },
-    {
+    process.env.GA_TRACKING_ID && {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GA_TRACKING_ID,
@@ -57,7 +47,7 @@ const config: GatsbyConfig = {
         respectDNT: true,
       },
     },
-  ],
+  ].filter(Boolean) as GatsbyConfig["plugins"],
 }
 
 export default config
