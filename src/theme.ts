@@ -10,7 +10,7 @@ export const theme = {
     paddings: { side: "1rem" },
   },
   fonts: {
-    heading: "Reem Kufi Fun, sans-serif",
+    heading: "Reem Kufi, sans-serif",
     body: "Montserrat, sans-serif",
   },
   animation: {
