@@ -34,7 +34,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Reem+Kufi:wght@500;`, `Montserrat:ital,wght@300;0,600;`],
+        fonts: [`Reem+Kufi+Fun:wght@500;`, `Montserrat:ital,wght@300;0,600;`],
         display: "swap",
       },
     },

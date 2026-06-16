@@ -2,6 +2,12 @@ import { css, keyframes } from "@emotion/react"
 import { theme } from "./theme"
 
 export const globalStyles = css`
+  @font-palette-values --reem-fun-brand {
+    font-family: "Reem Kufi Fun";
+    override-colors: 0 ${theme.color.brand}, 1 ${theme.color.brand},
+      2 ${theme.color.brand};
+  }
+
   html {
     background-color: ${theme.color.brand};
     scroll-behavior: smooth;
@@ -13,6 +19,7 @@ export const globalStyles = css`
     min-height: 100vh;
     font-size: 18px;
     font-family: ${theme.fonts.body};
+    font-palette: --reem-fun-brand;
     background: linear-gradient(white, #faecd1);
   }
 
